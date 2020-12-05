@@ -7,7 +7,7 @@ import java.util.Arrays;
 /**
  * 希尔排序：对插入排序的优化，中心思想是分组排序，最开始分成 LEN / 2 组， a[i] 和 a[len/2 + i]进行排序，
  * 后面循环减小组数，再对每一组排序，直到组数=LEN
- * 时间复杂度：
+ * 时间复杂度：O(N3/2)
  */
 public class ShellSort {
 
