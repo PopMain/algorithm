@@ -1,5 +1,7 @@
 package sort;
 
+import util.Utils;
+
 import java.util.Arrays;
 
 /**
@@ -10,7 +12,7 @@ public class ShellSort {
 
     public static void main(String[] args) {
         int[] array = new int[] {8,9,1,7,2,3,5,4,6,0};
-        shellSort(array);
+        shellSort2(array);
         System.out.println("result = " +Arrays.toString(array));
     }
 
@@ -36,9 +38,20 @@ public class ShellSort {
         }
     }
 
-    public static void swap(int []arr,int a,int b){
-                arr[a] = arr[a]+arr[b];
-                arr[b] = arr[a]-arr[b];
-                arr[a] = arr[a]-arr[b];
+    public static void shellSort2(int[] input) {
+        int gap = input.length / 2;
+        while (gap > 0) {
+            System.out.println("gap="+gap);
+            for (int i = 0, realIndex = gap; realIndex < input.length; i++, realIndex += gap) {
+                for (int j = realIndex ; j > 0; j = j - gap) {
+                    if (input[j] < input[j - gap]) {
+                        Utils.swap(input, j, j - gap);
+                    }
+                }
+            }
+            gap = gap / 2;
+        }
     }
+
+
 }
