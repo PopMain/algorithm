@@ -1,5 +1,7 @@
 package sort;
 
+import util.Utils;
+
 import java.util.Arrays;
 
 /**
@@ -23,9 +25,7 @@ public class BubbleSort {
         for (int i = 0; i < input.length; i++) {
             for (int j = 0; j < input.length - i - 1; j++) {
                 if (input[j] > input[j+1]) {
-                    int temp = input[j+1];
-                    input[j+1] = input[j];
-                    input[j] = temp;
+                    Utils.swap(input, j, j+1);
                     System.out.println(Arrays.toString(input));
                 }
             }

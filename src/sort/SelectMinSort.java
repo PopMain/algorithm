@@ -17,7 +17,7 @@ public class SelectMinSort {
      * 每次选择最小的数放在未排序最前面
      * @param input
      */
-    private static void selectSort(int[] input) {
+    public static void selectSort(int[] input) {
         for (int i = 0; i < input.length; i ++) {
             for (int j = i + 1; j < input.length; j++) {
                 if (input[j] < input[i]) {
