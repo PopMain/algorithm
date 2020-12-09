@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class QuickSort {
 
     public static void main(String[] args) {
-        int[] array = new int[] {6,1,2,5,4,9};
+        int[] array = new int[] {6,1,2,8,4,9};
         quickSort(array,0, array.length - 1);
         System.out.println("result = " +Arrays.toString(array));
     }
@@ -43,15 +43,15 @@ public class QuickSort {
                  *  i哨兵先动，i最终在9的位置（index=5）与j相遇，这个时候6和9换是错的
                  *  如果j先动，i,j会在4的位置相遇
                  */
-                while (input[i] <= pivotValue && j > i) {
-                    i++;
-                }
-                while (input[j] >= pivotValue && j > i) {
-                    j--;
-                }
 //                while (input[i] <= pivotValue && j > i) {
 //                    i++;
 //                }
+                while (input[j] >= pivotValue && j > i) {
+                    j--;
+                }
+                while (input[i] <= pivotValue && j > i) {
+                    i++;
+                }
                 if (i==j) {
                     pivotIndex = i;
                     Utils.swap(input, start, pivotIndex);
