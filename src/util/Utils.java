@@ -9,6 +9,9 @@ public class Utils {
      * @param b 要交换数B的下标
      */
     public static void swap(int []arr,int a,int b){
+        if (a == b) {
+            return;
+        }
         arr[a] = arr[a]+arr[b];
         arr[b] = arr[a]-arr[b];
         arr[a] = arr[a]-arr[b];
