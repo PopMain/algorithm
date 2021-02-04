@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class QuickSort {
 
     public static void main(String[] args) {
-        int[] array = new int[] {6,1,2,8,4,9};
+        int[] array = new int[] {6,7,2,8,4,9};
         quickSort(array,0, array.length - 1);
         System.out.println("result = " +Arrays.toString(array));
     }
@@ -59,7 +59,7 @@ public class QuickSort {
                     break;
                 }
                 Utils.swap(input, i, j);
-//                System.out.println(i + " " + j + "   result = " +Arrays.toString(input));
+                System.out.println(i + " " + j + "   result = " +Arrays.toString(input));
             }
             quickSort(input,start,pivotIndex-1);
             quickSort(input,pivotIndex+1,end);
