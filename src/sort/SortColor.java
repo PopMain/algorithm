@@ -29,7 +29,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class SortColor {
 
    public static void main(String[] args) {
-       int[] input = new int[] {2,0,2,1,1,0};
+       int[] input = new int[] {0,2,2,2,0,2,1,1};
        sortColorsTwoPointer(input);
        System.out.println(Arrays.toString(input));
    }
@@ -61,14 +61,22 @@ public class SortColor {
         }
         int left = 0;
         int right = nums.length - 1;
-        for (int  i = 0; i <= right; i++) {
-            while (i < right && nums[i] == 2) {
-                Utils.swap(nums, i, right);
-                right--;
-            }
+        while (right >= left && nums[right] == 2) {
+            right--;
+        }
+        while (left < right && nums[left] == 0) {
+            left++;
+        }
+        for (int i = left; i <= right; i++) {
             if (nums[i]==0) {
                 Utils.swap(nums, i, left);
                 left++;
+            }
+            if (nums[i] == 2) {
+                Utils.swap(nums, i, right);
+                right--;
+                // i位置和right交换，交换的数有可能是0，i需要减1，重新判断是否为0
+                i--;
             }
         }
     }
