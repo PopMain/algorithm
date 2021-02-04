@@ -1,6 +1,5 @@
 package sort;
 
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -29,7 +28,6 @@ public class SortColor {
 
    public static void main(String[] args) {
        int[] input = new int[] {2,2};
-       Arrays.sort(input);
        sortColorsTwoPointer(input);
        System.out.println(Arrays.toString(input));
    }
@@ -59,22 +57,20 @@ public class SortColor {
         if (nums == null || nums.length < 2) {
             return;
         }
-        int p = 0, q = nums.length - 1;
-        for (int i = 0; i <= q; ++i)
-        {
-            if (nums[i] == 0)
-            {
-                nums[i] = nums[p];
-                nums[p] = 0;
-                ++p;
+        int left = 0;
+        int right = nums.length - 1;
+        for (int  i = 0; i <= right; i++) {
+            while (i < right && nums[i] == 2) {
+                nums[i] = nums[right] + nums[i] ;
+                nums[right] = nums[i] - nums[right];
+                nums[i] = nums[i] - nums[right];
+                right--;
             }
-            if (nums[i] == 2)
-            {
-                nums[i] = nums[q];
-                nums[q] = 2;
-                --q;
-                if (nums[i] != 1)
-                    --i;
+            if (nums[i]==0) {
+                nums[i] = nums[left] + nums[i];
+                nums[left] = nums[i] - nums[left];
+                nums[i] = nums[i] - nums[left];
+                left++;
             }
         }
     }
