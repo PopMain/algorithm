@@ -7,7 +7,10 @@ public class PartitionLabels {
 
 
     public static void main(String[] args) {
-
+         List<Integer> res = partitionLabels("ababcbacadefegdehijhklij");
+         for (Integer s : res) {
+             System.out.print(s);
+         }
     }
 
     public static List<Integer> partitionLabels(String S) {

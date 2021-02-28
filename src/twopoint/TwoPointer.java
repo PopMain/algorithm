@@ -1,5 +1,6 @@
 package twopoint;
 
+import javax.xml.soap.Node;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,7 +11,34 @@ import java.util.List;
 public class TwoPointer {
 
     public static void main(String[] args) {
+        ListNode head = new ListNode(1);
+        ListNode cur = head;
+        for (int i = 2; i <=  5; i++) {
+            ListNode node = new ListNode(i);
+            cur.next = node;
+            cur = node;
+        }
+        cur.next = null;
+        ListNode re = reverseList(head);
+        while (re != null) {
+            System.out.print(re.val);
+            re = re.next;
+        }
+    }
 
+    public static ListNode reverseList(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        ListNode preNode = null;
+        ListNode curNode = head;
+        while (curNode != null) {
+            ListNode nextTemp = curNode.next;
+            curNode.next = preNode;
+            preNode = curNode;
+            curNode = nextTemp;
+        }
+        return preNode;
     }
 
     /**
@@ -305,7 +333,7 @@ public class TwoPointer {
     }
 
 
-    public class ListNode {
+    public static class ListNode {
         int val;
         ListNode next;
         ListNode() {}
